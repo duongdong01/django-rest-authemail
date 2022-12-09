@@ -21,8 +21,8 @@ setup(
         'django-rest-framework', 'djangorestframework', 'django-registration',
         'django-email-as-username'
     ],
-    url='http://github.com/celiao/django-rest-authemail',
-    download_url='https://github.com/celiao/django-rest-authemail/tarball/2.1.4',
+    url='https://github.com/duongdong01/django-rest-authemail',
+    download_url='https://github.com/duongdong01/django-rest-authemail/archive/refs/tags/v1.0.0.tar.gz',
     packages=['authemail'],
     include_package_data=True,
     long_description=long_description,
