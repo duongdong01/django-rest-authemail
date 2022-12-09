@@ -30,6 +30,15 @@ class Signup(APIView):
         if serializer.is_valid():
             email = serializer.data['email']
             password = serializer.data['password']
+            name = serializer.data['name']
+            phone= serializer.data['phone']
+            role = serializer.data['role']
+            source =serializer.data['source']
+            link = serializer.data['link']
+            date_of_birth=serializer.data['date_of_birth']
+            work_place = serializer.data['work_place']
+            job = serializer.data['job']
+            phone_parents= serializer.data['phone_parents']
             first_name = serializer.data['first_name']
             last_name = serializer.data['last_name']
 
@@ -53,6 +62,16 @@ class Signup(APIView):
 
             # Set user fields provided
             user.set_password(password)
+
+            user.name = name
+            user.phone = phone
+            user.role = role
+            user.source = source
+            user.link = link
+            user.date_of_birth = date_of_birth
+            user.work_place = work_place
+            user.job= job
+            user.phone_parents=phone_parents
             user.first_name = first_name
             user.last_name = last_name
             if not must_validate_email:
@@ -69,7 +88,7 @@ class Signup(APIView):
                
                 signup_code.send_signup_email()
             content = {'email': email, 'first_name': first_name,
-                       'last_name': last_name}
+                       'last_name': last_name,'role':role,'name':name}
             return Response(content, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

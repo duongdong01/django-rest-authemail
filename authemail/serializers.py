@@ -9,11 +9,24 @@ class SignupSerializer(serializers.Serializer):
     """
     email = serializers.EmailField(max_length=255)
     password = serializers.CharField(max_length=128)
+    name = serializers.CharField(max_length=50)
+    phone = serializers.CharField(max_length=12)                         
+    role=serializers.IntegerField(default=1)
     first_name = serializers.CharField(max_length=30, default='',
                                        required=False)
     last_name = serializers.CharField(max_length=30, default='',
                                       required=False)
-
+    source = serializers.CharField(max_length=250, default='',
+                                      required=False)
+    link = serializers.CharField(max_length=250, default='',
+                                      required=False)
+    date_of_birth= serializers.DateField(required=False,default='2001-01-01')
+    work_place = serializers.CharField(max_length=250, default='',
+                                      required=False)
+    job = serializers.CharField(max_length=250, default='',
+                                      required=False)   
+    phone_parents =serializers.CharField(max_length=12, default='',
+                                      required=False)  
 
 class LoginSerializer(serializers.Serializer):
     email = serializers.EmailField(max_length=255)
